@@ -1,12 +1,19 @@
-function __main__() {
-    var settings = {
-    "async": true,
-    "type": "GET",
-    "url":
-    "https://euw1.api.riotgames.com/lol/platform/v3/champion-rotations?api_key=RGAPI-7156057a-eb56-4ca2-9e1f-0a9b839fd2fc"
-};
-$.ajax(settings).done(function(response) {
-console.log(response);
-});
+var API_URL = "http://jsonplaceholder.typicode.com"
+
+var xhr = new XMLHttpRequest()
+
+function onRequestHandler(){
+if(this.readyState == 4 && this.status == 200) {
+    //0 = Unset
+    //1 = Opned
+    //2 = Headers_Reciver
+    //3 = Loading
+    //4 = Done
+    console.log(this.response)
 }
-__main__()
+}
+
+xhr.addEventListener("load", onRequestHandler)
+xhr.open("GET" , `${API_URL}/users`)
+xhr.send()
+
